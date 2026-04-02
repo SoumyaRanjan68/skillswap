@@ -155,7 +155,7 @@ app.get("/", (req, res) => res.send("Peerskill API Running ✦"));
  
 // ── SOCKET.IO ──
 const server = http.createServer(app);
-const Message = require("./models/Message");
+const Message = require("./models/message");
  
 const io = new Server(server, {
   cors: { origin: "http://localhost:5173" }
