@@ -128,8 +128,15 @@ const { Server } = require("socket.io");
 const app = express();
  
 // ── MIDDLEWARE ──
+// app.use(cors({
+//   origin: "http://localhost:5173",
+//   credentials: true
+// }));
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://skillswap-17d7.onrender.com"
+  ],
   credentials: true
 }));
 app.use(express.json());
