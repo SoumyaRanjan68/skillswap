@@ -157,8 +157,17 @@ app.get("/", (req, res) => res.send("Peerskill API Running ✦"));
 const server = http.createServer(app);
 const Message = require("./models/message");
  
+// const io = new Server(server, {
+//   cors: { origin: "http://localhost:5173" }
+// });
+
 const io = new Server(server, {
-  cors: { origin: "http://localhost:5173" }
+  cors: {
+    origin: [
+      "http://localhost:5173",
+      "https://skillswap-17d7.onrender.com"
+    ]
+  }
 });
  
 io.on("connection", (socket) => {
