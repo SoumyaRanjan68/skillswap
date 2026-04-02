@@ -247,7 +247,8 @@ import { io } from 'socket.io-client';
 import API from '../services/api';
 import './Chat.css';
 
-const socket = io('http://localhost:5000');
+// const socket = io('http://localhost:5000');
+const socket = io("https://skillswap-eitr.onrender.com");
 
 export default function Chat() {
   const navigate = useNavigate();
