@@ -1,0 +1,48 @@
+#cur {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--lime);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .3s, height .3s, border-radius .3s;
+  mix-blend-mode: difference;
+}
+#cur-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(209,255,0,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width .3s, height .3s, opacity .3s;
+}
+#cur-text {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  font-family: var(--font-head);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--lime);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity .2s;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* card hover state */
+body:has(.card:hover) #cur {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+}
+body:has(.card:hover) #cur-ring  { opacity: 0; }
+body:has(.card:hover) #cur-text  { opacity: 1; }
+body:has(.nav-cta:hover) #cur    { width: 14px; height: 14px; }
