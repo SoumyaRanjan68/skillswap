@@ -126,19 +126,22 @@ const http       = require("http");
 const { Server } = require("socket.io");
  
 const app = express();
- 
-// ── MIDDLEWARE ──
+
 // app.use(cors({
-//   origin: "http://localhost:5173",
+//   origin: [
+//     "http://localhost:5173",
+//     "https://skillswap-17d7.onrender.com"
+//   ],
 //   credentials: true
 // }));
 app.use(cors({
   origin: [
-    "http://localhost:5173",
-    "https://skillswap-17d7.onrender.com"
+    'http://localhost:5173',
+    'https://skillswap-steel-chi.vercel.app',
   ],
   credentials: true
 }));
+
 app.use(express.json());
  
 // ── DATABASE ──
@@ -168,15 +171,24 @@ const Message = require("./models/message");
 //   cors: { origin: "http://localhost:5173" }
 // });
 
+// const io = new Server(server, {
+//   cors: {
+//     origin: [
+//       "http://localhost:5173",
+//       "https://skillswap-17d7.onrender.com"
+//     ]
+//   }
+// });
+ 
 const io = new Server(server, {
   cors: {
     origin: [
-      "http://localhost:5173",
-      "https://skillswap-17d7.onrender.com"
+      'http://localhost:5173',
+      'https://skillswap-steel-chi.vercel.app',
     ]
   }
 });
- 
+
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
  
